@@ -465,9 +465,10 @@ class Theme {
             if ($mermaidElements.length) {
                 mermaid.initialize({startOnLoad: false, theme: this.isDark ? 'dark' : 'neutral', securityLevel: 'loose'});
                 Util.forEach($mermaidElements, $mermaid => {
-                    mermaid.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
-                        $mermaid.innerHTML = svgCode;
-                    }, $mermaid);
+                    mermaid.render('mermaid-svg-' + $mermaid.id, this.data[$mermaid.id])
+                        .then(({ svg }) => {
+                            $mermaid.innerHTML = svg;
+                        });
                 });
             }
         });
@@ -647,6 +648,7 @@ class Theme {
                 });
                 this.switchThemeEventSet.add(this._giscusOnSwitchTheme);
             }
+            if (this.config.comment.waline) Waline.init(this.config.comment.waline);
         }
     }
 
