@@ -583,10 +583,10 @@
   [params.analytics]
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "G-94YNG1L737"
       # whether to respect the browser’s “do not track” setting
       # 是否遵循浏览器的 “Do Not Track” 设置
-      respectDoNotTrack = false
+      respectDoNotTrack = true
     # Fathom Analytics
     [params.analytics.fathom]
       id = ""
